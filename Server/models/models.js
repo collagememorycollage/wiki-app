@@ -12,6 +12,7 @@ const User = sequelize.define('user', {
 const Article = sequelize.define('article', {
     id_article: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name_article: {type: DataTypes.STRING, unique: true, allowNull: false},
+    text_article: {type: DataTypes.STRING(1000)},
     readable_count: {type: DataTypes.INTEGER, defaultValue: 0},
     rating: {type: DataTypes.INTEGER, defaultValue: 0}
 })

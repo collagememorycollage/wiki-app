@@ -4,8 +4,8 @@ const { model } = require('../db.js')
 
 class ArticleController {
     async create(req, res) {
-        const {name_article, readable_count, rating} = req.body
-        const article = await Article.create({name_article, readable_count, rating})
+        const {name_article,text_article, readable_count, rating} = req.body
+        const article = await Article.create({name_article, text_article, readable_count, rating})
         return res.json(article)
     }
 
