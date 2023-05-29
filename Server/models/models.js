@@ -17,7 +17,7 @@ const Article = sequelize.define('article', {
     rating: {type: DataTypes.INTEGER, defaultValue: 0}
 })
 
-const UserFavorite = sequelize.define('user_favorite', {
+const UserFavorite = sequelize.define('user_favorites', {
     id_favorite: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
 
@@ -27,8 +27,9 @@ const NowReading = sequelize.define('now_reading', {
 
 const Notes = sequelize.define('notes', {
     id_note: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    text: {type: DataTypes.STRING},
-    date: {type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW},
+    title_note: {type: DataTypes.STRING},
+    text_note: {type: DataTypes.STRING(1000)},
+    date_note: {type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW},
 })
 
 User.hasMany(UserFavorite, {
@@ -36,7 +37,7 @@ User.hasMany(UserFavorite, {
 });
 
 User.hasMany(NowReading, {
-    foreignKey: 'id_user'
+    foreignKey: 'id_user',
 });
 
 User.hasMany(Notes, {
